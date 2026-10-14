@@ -1,0 +1,440 @@
+PROJECT NAME: PixGallery
+
+TAGLINE: Discover. Explore. Enjoy.
+
+Act as a senior full-stack developer, UI/UX designer, database architect, and web security expert. Build a complete, professional, mobile-first photo gallery website named PixGallery with a beautiful, colorful, modern design.
+
+The website must be fully functional, responsive, secure, and production-ready. Do not create just a static design or a visual prototype. All buttons, forms, uploads, admin functions, database operations, and photo interactions must work correctly.
+
+1. WEBSITE DESIGN AND BRAND IDENTITY
+
+Website Name: PixGallery
+
+Tagline: Discover. Explore. Enjoy.
+
+Language: English only.
+
+Design Style: Premium, modern, colorful, elegant, and professional.
+
+Color Theme:
+
+- Pink
+- Blue
+- Purple
+- Red
+- Cyan
+- Gradient combinations of multiple colors
+- Dark backgrounds with colorful accents
+- White text and clean typography where appropriate
+
+Use a beautiful combination of pink, blue, purple, and multicolor gradients. Avoid excessive visual clutter.
+
+Use modern typography, smooth transitions, rounded cards, subtle shadows, attractive buttons, and professional spacing.
+
+The website must look excellent on Android phones, iPhones, tablets, laptops, and desktop computers.
+
+2. PHOTO GALLERY LAYOUT
+
+Create a visually attractive photo gallery with a vertical 9:16 aspect ratio for photo cards.
+
+Requirements:
+
+- Display photos in a modern, responsive gallery grid.
+- Every gallery card should use a 9:16 portrait layout.
+- Use object-fit: cover for visually attractive image previews.
+- Display a white play-style icon overlay on each photo card.
+- Use a clean white circular icon with a subtle shadow.
+- Add a smooth hover effect on desktop and touch-friendly interactions on mobile.
+- Display the photo title beneath or over the image using an attractive layout.
+- Allow users to open any photo in a dedicated photo-viewing page or modal.
+- Show the full photo title and description when a photo is opened.
+- Display the photo publication date.
+- Include a related photos section.
+- Add pagination or a Load More button.
+- Avoid loading every image at once.
+- Use lazy loading and optimized image sizes for faster performance.
+- Do not display fake demo photos or placeholder posts in production.
+- Display only photos published by the administrator.
+
+The white play-style icon is a visual design element for opening the photo. It does not mean every photo must contain a video.
+
+3. WEBSITE NAVIGATION
+
+Create a professional navigation system containing:
+
+- Home
+- Latest Photos
+- Popular
+- Categories
+- Search
+- About Us
+- Contact Us
+
+Include a beautiful PixGallery logo and a responsive mobile navigation menu.
+
+The homepage should display:
+
+- A premium hero section
+- A colorful PixGallery heading
+- A short introductory description
+- A photo search bar
+- Featured photos
+- Latest photo uploads
+- Category filters
+- Popular photo collections
+- Advertisement placements
+- A professional footer
+
+If a section has no published content, hide it or display a clean empty state.
+
+4. SECURE ADMIN PANEL
+
+Create a separate, secure administrator dashboard.
+
+The public website must not expose the admin dashboard or administrative controls to ordinary visitors.
+
+Use secure administrator authentication. Never hardcode an administrator password or expose secret keys in frontend code.
+
+The admin dashboard should include:
+
+A. Dashboard Overview
+
+- Total published photos
+- Total categories
+- Total photo views
+- Recent uploads
+- Quick upload button
+- Recent administrative activity
+
+B. Photo Management
+
+Allow the administrator to:
+
+- Upload photos from a phone or computer.
+- Add a photo title.
+- Add a detailed description.
+- Select a category.
+- Upload a thumbnail or choose an appropriate preview image.
+- Preview a post before publishing.
+- Publish a photo.
+- Edit an existing photo.
+- Unpublish a photo.
+- Delete a photo.
+- Search and manage existing posts.
+- View upload status and publication dates.
+
+C. Publishing Workflow
+
+When the administrator uploads a photo and publishes it, the photo should appear on the public website automatically.
+
+When the administrator edits a title or description, the changes should appear on the website.
+
+When the administrator deletes a photo, it should disappear from the public gallery and its dedicated page.
+
+Use a confirmation dialog before permanently deleting a photo.
+
+If an upload fails, display a clear error message. Never report a successful upload unless the database and file storage operations have actually succeeded.
+
+5. TITLE AND LONG DESCRIPTION SUPPORT
+
+Each photo post must support:
+
+- Photo title
+- Main photo
+- Optional thumbnail
+- Category
+- Detailed description
+- Publication date
+- Optional tags
+- Optional alternative text for accessibility
+
+The description field must support at least 10,000 words per post.
+
+Use a proper multiline text editor or a rich-text editor that supports long descriptions.
+
+Descriptions must be saved completely without unexpected truncation.
+
+The public photo page should display the description in a readable layout with appropriate spacing, headings, and paragraphs.
+
+Support Unicode text, although the public website interface must remain in English.
+
+6. PERMANENT DATABASE AND PHOTO STORAGE
+
+This is one of the most important requirements.
+
+Do not store published posts only in browser localStorage, sessionStorage, temporary memory, or frontend JavaScript variables.
+
+Use a persistent database and permanent file storage.
+
+Recommended architecture:
+
+- Frontend: React with TypeScript.
+- Styling: Tailwind CSS or an equivalent modern responsive styling system.
+- Backend and database: Supabase.
+- Database: PostgreSQL.
+- Image storage: Supabase Storage or another reliable persistent object-storage service.
+- Authentication: Secure administrator authentication.
+
+Create the required database tables and relationships.
+
+Suggested photo table fields:
+
+- id
+- title
+- description
+- image_url
+- thumbnail_url
+- category_id
+- tags
+- status
+- created_at
+- updated_at
+- published_at
+- view_count
+
+Create additional tables for categories and any other required features.
+
+Configure database permissions and storage access securely.
+
+Only authenticated, authorized administrators may upload, edit, publish, or delete content.
+
+Public visitors should be able to view published photos without receiving administrator permissions.
+
+The website must retrieve posts from the persistent database.
+
+Permanent Storage Requirements
+
+Published posts must remain available after:
+
+- Refreshing the page
+- Closing and reopening the browser
+- Restarting a phone or computer
+- Clearing browser cache
+- Signing out of the admin panel
+- Deploying a new frontend version
+
+Photos and posts should remain available for years, provided the storage service and account remain active and the content is not deleted.
+
+Do not claim that storage is guaranteed forever. Explain that permanent availability depends on the selected provider, account status, storage limits, billing, and backups.
+
+When an administrator deletes a photo, remove the corresponding database record and stored image according to the configured deletion policy.
+
+Handle failed uploads, database errors, and incomplete deletions safely.
+
+7. THREE ADVERTISEMENT PLACEMENTS
+
+Create exactly three configurable advertisement placements.
+
+The administrator should be able to enable, disable, and update each advertisement independently.
+
+Advertisement 1: Top Banner
+
+Position: At the very top of the public website, above the main content.
+
+Requirements:
+
+- A responsive advertisement container.
+- Support standard banner advertising code.
+- Adapt to mobile and desktop screen sizes.
+- Avoid covering the website logo or navigation.
+- Include an optional advertisement label.
+
+Advertisement 2: Photo Page Advertisement
+
+Position: Directly below the main photo or below the photo-viewing content when a visitor opens a photo.
+
+Requirements:
+
+- Display an advertisement beneath the photo.
+- Support responsive ad formats.
+- Keep the photo title and description readable.
+- Ensure the advertisement does not overlap the image or navigation.
+
+Advertisement 3: Site-Wide Advertisement
+
+Position: A configurable site-wide placement that can appear on all public pages.
+
+Requirements:
+
+- Allow the administrator to select a suitable location, such as a sidebar on desktop or a designated content area.
+- Adapt the layout for mobile screens.
+- Avoid covering photos, text, or navigation.
+- Support a trusted advertising provider's approved code.
+
+Advertisement Management
+
+Add an Advertisement Settings section to the admin dashboard.
+
+For each placement, provide:
+
+- Placement name
+- Enable or disable switch
+- Advertisement code field
+- Save settings button
+- Preview option where safe and technically possible
+
+Save advertisement settings in persistent storage.
+
+Only trusted administrator accounts may change advertisement settings.
+
+Never execute arbitrary advertisement scripts through an unsafe rendering method. Implement a secure integration method for approved advertising providers.
+
+Do not hardcode advertising revenue or claim that advertisements will generate income automatically.
+
+8. SEARCH AND CATEGORIES
+
+Create a fully functional search system.
+
+Visitors should be able to search published photos by:
+
+- Title
+- Description
+- Category
+- Tags
+
+Include:
+
+- Search suggestions where practical
+- Clear search button
+- Empty search results message
+- Category filtering
+- Latest-first sorting
+- Popularity sorting based on actual view data
+
+Search results must come from published database records.
+
+9. PHOTO VIEWING EXPERIENCE
+
+When a visitor clicks a photo card:
+
+- Open a dedicated photo page or an accessible photo-viewing modal.
+- Display the main photo prominently.
+- Display the title.
+- Display the complete description.
+- Display the category and publication date.
+- Display the second advertisement placement below the photo content.
+- Show related photos.
+- Include a back navigation option.
+- Update the view counter responsibly without repeatedly inflating views from automatic refreshes.
+
+Use optimized image delivery and responsive image sizing.
+
+Provide an accessible close button if using a modal.
+
+10. RESPONSIVE MOBILE-FIRST DESIGN
+
+Mobile usability is essential.
+
+Ensure:
+
+- The gallery works smoothly on small screens.
+- Photo cards maintain a 9:16 aspect ratio.
+- Buttons are easy to tap.
+- Long descriptions are readable.
+- The admin upload form works on Android browsers.
+- The admin can select images from a phone.
+- Navigation is responsive.
+- No horizontal overflow occurs.
+- Images load progressively.
+- The website remains usable on slower internet connections.
+
+11. PERFORMANCE AND SECURITY
+
+Implement:
+
+- Secure authentication
+- Database access policies
+- File upload validation
+- File size limits configurable by the administrator or application settings
+- Allowed image formats such as JPEG, PNG, and WebP
+- Safe text rendering
+- Input validation
+- Error handling
+- Loading indicators
+- Empty states
+- Upload progress indicators where supported
+- Pagination or incremental loading
+- Image optimization
+- Appropriate metadata for search engines
+- Accessible interface elements
+
+Do not expose service-role keys, database passwords, or private API credentials in frontend code.
+
+Do not use mock database responses as if they were real saved content.
+
+Do not show success messages for operations that have failed.
+
+12. WEBSITE FOOTER
+
+Create a professional footer with:
+
+- PixGallery logo
+- Discover. Explore. Enjoy.
+- About Us
+- Contact Us
+- Privacy Policy
+- Terms of Service
+- Copyright notice
+
+Copyright text:
+
+© 2026 PixGallery. All rights reserved.
+
+13. GOOGLE AI STUDIO IMPLEMENTATION REQUIREMENTS
+
+Generate the complete working project, not just a design mockup.
+
+Provide:
+
+- Complete frontend source code
+- Backend and database integration
+- Database schema and setup instructions
+- Persistent image storage configuration
+- Secure admin authentication
+- Admin dashboard
+- Photo upload and publishing workflow
+- Photo editing and deletion workflow
+- Three advertisement placements
+- Responsive gallery layout
+- Search and category functionality
+- Deployment instructions
+
+Use environment variables for credentials and provide an example environment configuration without real secrets.
+
+Explain how to configure the database, storage bucket, administrator account, and advertisement codes.
+
+Make the application build successfully.
+
+Fix all compilation errors and runtime errors before declaring the project complete.
+
+Do not leave buttons nonfunctional.
+
+Do not replace missing backend features with localStorage.
+
+Do not create fake published content.
+
+If a required external service has not been configured, clearly explain which configuration is missing and how to complete it.
+
+14. FINAL EXPECTED RESULT
+
+Deliver a complete, modern, premium photo gallery website named PixGallery.
+
+The public interface must be entirely in English.
+
+The website should have a beautiful pink, blue, purple, and multicolor visual identity.
+
+All photo cards must use a 9:16 portrait layout.
+
+The administrator must be able to upload, publish, edit, unpublish, and delete photos.
+
+Each post must support a title and a description of at least 10,000 words.
+
+All published content must be stored in a persistent database with reliable image storage.
+
+The website must have three independently configurable advertisement placements.
+
+Changes made in the admin panel must be reflected on the public website.
+
+Prioritize reliability, security, attractive design, permanent data storage, and excellent mobile usability.
+
+Start by generating the complete project structure and implementing the application step by step. Do not stop after creating the homepage design.
